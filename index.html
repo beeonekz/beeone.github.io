@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <title>Форма заказа</title>
+</head>
+<body>
+    <input type="text" id="receiverName" placeholder="Имя получателя" required>
+    <input type="text" id="receiverTel" placeholder="Телефон получателя" required>
+    <input type="text" id="deliveryAddress" placeholder="Адрес доставки" required>
+    <div class="delivery">
+        <input class="deliveryClass" type="radio" id="cityDelivery" name="delivery" value="city" required>
+        <label for="cityDelivery">Доставка по городу</label>
+        <input class="deliveryClass" type="radio" id="regionDelivery" name="delivery" value="region" required>
+        <label for="regionDelivery">Доставка в регион</label>
+    </div>
+
+    <h4>Выбор даты доставки:</h4>
+<p>Выберите дату в пределах одной недели:</p>
+
+<input type="date" id="myDate" class="dateClass" required>
+
+<div id="myModal">
+  <div id="modalContent">
+    <p id="modalText"></p>
+  </div>
+</div>
+
+<p>Товары:</p>
+
+<div class="brandName" onclick="showAndHide('baybeeContainer')">Baybee</div>
+<div class="baybeeContainer products">
+    <div class="prodType"><p>подгузники:</p></div>
+    
+    <div class="podguz prodPodType">
+        <div class="product">
+            <img src="./товары/подгузники/baybee/baybee_newborn.png" width="50" height="50">
+            <div class="prodName">Baybee подгузники New Born 2-5кг 36шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/подгузники/baybee/baybee_mini.png" width="50" height="50">
+            <div class="prodName">Baybee подгузники Mini 4-8кг 64шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/подгузники/baybee/baybee_M.png" width="50" height="50">
+            <div class="prodName">Baybee подгузники M 6-11кг 52шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/подгузники/baybee/baybee_L.png" width="50" height="50">
+            <div class="prodName">Baybee подгузники L 9-14кг 48шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/подгузники/baybee/baybee_XL.png" width="50" height="50">
+            <div class="prodName">Baybee подгузники XL 12-18кг 42шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/подгузники/baybee/baybee_XXL.png" width="50" height="50">
+            <div class="prodName">Baybee подгузники XXL 13-20кг 38шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="prodType"><p>трусики:</p></div>
+    
+    <div class="trusiki prodPodType">
+        <div class="product">
+            <img src="./товары/трусики/baybee/baybee_M.png" width="50" height="50">
+            <div class="prodName">Baybee трусики M 6-10кг 52шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/трусики/baybee/baybee_L.png" width="50" height="50">
+            <div class="prodName">Baybee трусики L 9-14кг 48шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/трусики/baybee/baybee_XL.png" width="50" height="50">
+            <div class="prodName">Baybee трусики XL 12-18кг 42шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/трусики/baybee/baybee_XXL.png" width="50" height="50">
+            <div class="prodName">Baybee трусики XXL 15-22кг 40шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="prodType"><p>салфетки:</p></div>
+    
+    <div class="salfetki prodPodType">
+        <div class="product">
+            <img src="./товары/салфетки/baybee.png" width="50" height="50">
+            <div class="prodName">Baybee салфетки 24 шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/салфетки/baybee.png" width="50" height="50">
+            <div class="prodName">Baybee салфетки 80 шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="brandName" onclick="showAndHide('momKnowsContainer')">Мама знает</div>
+<div class="momKnowsContainer products">
+    <div class="prodType"><p>подгузники:</p></div>
+
+    <div class="podguz prodPodType">
+        <div class="product">
+            <img src="./товары/подгузники/мамаЗнает/мамаЗнает_newBorn.png" width="50" height="50">
+            <div class="prodName">Мама знает подгузники New Born (1)</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/подгузники/мамаЗнает/s.png" width="50" height="50">
+            <div class="prodName">Мама знает подгузники S (2)</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/подгузники/мамаЗнает/m.png" width="50" height="50">
+            <div class="prodName">Мама знает подгузники M (3)</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/подгузники/мамаЗнает/L.png" width="50" height="50">
+            <div class="prodName">Мама знает подгузники L (4)</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/подгузники/мамаЗнает/XL.png" width="50" height="50">
+            <div class="prodName">Мама знает подгузники XL (5)</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/подгузники/мамаЗнает/XXL.png" width="50" height="50">
+            <div class="prodName">Мама знает подгузники XXL (6)</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="prodType"><p>трусики:</p></div>
+    
+    <div class="trusiki prodPodType">
+        <div class="product">
+            <img src="./товары/трусики/мамаЗнает/M.png" width="50" height="50">
+            <div class="prodName">Мама знает трусики M (3)</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/трусики/мамаЗнает/L.png" width="50" height="50">
+            <div class="prodName">Мама знает трусики L (4)</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/трусики/мамаЗнает/XL.png" width="50" height="50">
+            <div class="prodName">Мама знает трусики XL (5)</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/трусики/мамаЗнает/XXL.png" width="50" height="50">
+            <div class="prodName">Мама знает трусики XXL (6)</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/трусики/мамаЗнает/XXXL.png" width="50" height="50">
+            <div class="prodName">Мама знает трусики XXXL (7)</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="prodType"><p>салфетки:</p></div>
+    
+    <div class="salfetki prodPodType">
+        <div class="product">
+            <img src="./товары/салфетки/мамаЗнает.png" width="50" height="50">
+            <div class="prodName">Мама знает салфетки 30 шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/салфетки/мамаЗнает.png" width="50" height="50">
+            <div class="prodName">Мама знает салфетки 80 шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="brandName" onclick="showAndHide('MommyBabyContainer')">Mommy Baby</div>
+<div class="MommyBabyContainer products">
+    <div class="prodType"><p>подгузники:</p></div>
+
+    <div class="podguz prodPodType">
+        <div class="product">
+            <img src="./товары/подгузники/MommyBaby/2.png" width="50" height="50">
+            <div class="prodName">Mommy Baby подгузники 2 | 4-8 кг | 56 шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/подгузники/MommyBaby/3.png" width="50" height="50">
+            <div class="prodName">Mommy Baby подгузники 3 | 6-11 кг | 48 шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/подгузники/MommyBaby/4.png" width="50" height="50">
+            <div class="prodName">Mommy Baby подгузники 4 | 9-14 кг | 44 шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/подгузники/MommyBaby/5.png" width="50" height="50">
+            <div class="prodName">Mommy Baby подгузники 5 | 12-18 кг | 40 шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/подгузники/MommyBaby/6.png" width="50" height="50">
+            <div class="prodName">Mommy Baby подгузники 6 | 13-23 кг | 36 шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="prodType"><p>трусики:</p></div>
+        
+    <div class="trusiki prodPodType">
+        <div class="product">
+            <img src="./товары/трусики/MommyBaby/3.png" width="50" height="50">
+            <div class="prodName">Mommy Baby трусики 3 | 6-11 кг | 44 шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/трусики/MommyBaby/4.png" width="50" height="50">
+            <div class="prodName">Mommy Baby трусики 4 | 9-15 кг | 42 шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/трусики/MommyBaby/5.png" width="50" height="50">
+            <div class="prodName">Mommy Baby трусики 5 | 12-19 кг | 40 шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/трусики/MommyBaby/6.png" width="50" height="50">
+            <div class="prodName">Mommy Baby трусики 6 | 13-24 кг | 38 шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="prodType"><p>салфетки:</p></div>
+
+    <div class="salfetki prodPodType">
+        <div class="product">
+            <img src="./товары/салфетки/MommyBaby_36.png" width="50" height="50">
+            <div class="prodName">Mommy Baby салфетки 36 шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="./товары/салфетки/MommyBaby_80.png" width="50" height="50">
+            <div class="prodName">Mommy Baby салфетки 80 шт</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="brandName" onclick="showAndHide('SaikoContainer')">Saiko</div>
+<div class="SaikoContainer products">
+    <div class="prodType"><p>дневные:</p></div>
+
+    <div class="dnevnye prodPodType">
+        <div class="product">
+            <img src="./товары/saiko/дневные.png" width="50" height="50">
+            <div class="prodName">Saiko дневные</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="prodType"><p>ночные:</p></div>
+
+    <div class="nochnye prodPodType">
+        <div class="product">
+            <img src="./товары/saiko/ежедневные.png" width="50" height="50">
+            <div class="prodName">Saiko ежедневные</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="prodType"><p>ночные:</p></div>
+
+    <div class="ejednevnye prodPodType">
+        <div class="product">
+            <img src="./товары/saiko/ночные.png" width="50" height="50">
+            <div class="prodName">Saiko ночные</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="brandName" onclick="showAndHide('evaContainer')">eva</div>
+<div class="evaContainer products">
+    <div class="prodType"><p>дневные:</p></div>
+
+    <div class="dnevnye prodPodType">
+        <div class="product">
+            <img src="./товары/eva/дневные.png" width="50" height="50">
+            <div class="prodName">eva дневные</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="prodType"><p>ночные:</p></div>
+
+    <div class="nochnye prodPodType">
+        <div class="product">
+            <img src="./товары/eva/ежедневные.png" width="50" height="50">
+            <div class="prodName">eva ежедневные</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="prodType"><p>ночные:</p></div>
+
+    <div class="ejednevnye prodPodType">
+        <div class="product">
+            <img src="./товары/eva/ночные.png" width="50" height="50">
+            <div class="prodName">eva ночные</div>
+            <button class="add">Добавить</button>
+            <div class="quantity" style="display: none;">
+              <button class="decrease">-</button>
+              <input type="number" value="0">
+              <button class="increase">+</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Место для отображения текста формы -->
+<div id="formText" class="formTextClass"></div>
+
+
+
+<script>
+    var modal = document.getElementById("myModal");
+    var span = document.getElementsByClassName("close")[0];
+    
+    document.getElementById("myDate").addEventListener("change", function() {
+        var inputDate = new Date(this.value);
+        var now = new Date();
+        var weekLater = new Date();
+        weekLater.setDate(now.getDate() + 8);
+        inputDate.setHours(0, 0, 0, 0);
+        now.setHours(0, 0, 0, 0);
+        
+        if (inputDate < now || inputDate > weekLater) {
+            document.getElementById("modalText").innerHTML = "Пожалуйста, выберите дату в пределах одной недели.";
+            modal.style.display = "flex";
+            this.value = '';
+        }
+    });
+    
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+
+
+
+
+    var products = document.querySelectorAll('.product');
+
+products.forEach(function(product) {
+  var addButton = product.querySelector('.add');
+  var quantityDiv = product.querySelector('.quantity');
+  var decreaseButton = product.querySelector('.decrease');
+  var increaseButton = product.querySelector('.increase');
+  var quantityInput = product.querySelector('input');
+
+  addButton.addEventListener('click', function() {
+    addButton.style.display = 'none';
+    quantityDiv.style.display = 'block';
+    quantityInput.value = 1
+  });
+
+  decreaseButton.addEventListener('click', function() {
+    var quantity = parseInt(quantityInput.value);
+    if (quantity > 1) {
+            quantityInput.value = quantity - 1;
+        } else if (quantity === 1) {
+            quantityInput.value = 0;
+            quantityDiv.style.display = 'none';
+            addButton.style.display = 'block';
+        }
+  });
+
+  increaseButton.addEventListener('click', function() {
+    var quantity = parseInt(quantityInput.value);
+    quantityInput.value = quantity + 1;
+  });
+});
+
+
+
+
+
+
+
+
+document.querySelector('input[type="number"]').addEventListener('input', function (e) {
+    this.style.width = ((this.value.length + 1) * 8 + 16) + 'px';
+});
+
+
+
+
+
+
+
+let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
+
+tg.expand(); //расширяем на все окно  
+
+tg.MainButton.text = "Отправить"; //изменяем текст кнопки 
+tg.MainButton.show()
+
+Telegram.WebApp.onEvent('mainButtonClicked', function() {
+    if (isFormValid()) {
+        var products = document.getElementsByClassName('product');
+        var data = {};
+        var prods = {};
+
+        for (var i = 0; i < products.length; i++) {
+            var prodName = products[i].querySelector('.prodName').textContent;
+            var quantityInput = products[i].querySelector('input[type="number"]');
+            var quantity = quantityInput ? quantityInput.value : 0;
+
+            if (quantity != 0) {
+                prods[prodName] = parseInt(quantity);
+            }
+        }
+
+        data["товары"] = prods
+        data["имя получателя"] = document.getElementById('receiverName').value;
+        data["телефон получателя"] = document.getElementById('receiverTel').value;
+        data["адрес доставки"] = document.getElementById('deliveryAddress').value;
+        data["дата доставки"] = document.getElementById('myDate').value;
+        var selectedDeliveryRadio = document.querySelector('input[name="delivery"]:checked');
+        data["доставка"] = document.querySelector('label[for="' + selectedDeliveryRadio.id + '"]').textContent
+
+        var data_json = JSON.stringify(data);
+        tg.sendData(data_json);
+    } else {
+        // alert("Пожалуйста, заполните все обязательные поля.");
+        document.getElementById("modalText").innerHTML = "Пожалуйста, заполните все обязательные поля.";
+        modal.style.display = "flex";
+    }
+});
+   function isFormValid() {
+    var receiverName = document.getElementById('receiverName').value;
+    var receiverTel = document.getElementById('receiverTel').value;
+    var deliveryAddress = document.getElementById('deliveryAddress').value;
+    
+    var selectedDeliveryRadio = document.querySelector('input[name="delivery"]:checked');
+    var deliveryDate = document.getElementById('myDate').value;
+
+    // Проверяем, заполнены ли текстовые поля и выбрана ли дата
+    if (!receiverName || !receiverTel || !deliveryAddress || !deliveryDate) {
+        return false;
+    }
+
+    // Проверяем, выбран ли способ доставки
+    if (!selectedDeliveryRadio) {
+        return false;
+    }
+
+    return true;
+}
+
+
+
+
+
+
+   function updateFormText() {
+    var receiverName = document.getElementById('receiverName').value;
+    var receiverTel = document.getElementById('receiverTel').value;
+    var deliveryAddress = document.getElementById('deliveryAddress').value;
+
+    // Находим выбранную радио-кнопку
+    var selectedDeliveryRadio = document.querySelector('input[name="delivery"]:checked');
+    // Получаем текст метки для выбранной радио-кнопки
+    var deliveryMethod = selectedDeliveryRadio ? document.querySelector('label[for="' + selectedDeliveryRadio.id + '"]').textContent : '';
+    var deliveryDate = document.getElementById('myDate').value;
+
+    var products = document.getElementsByClassName('product');
+    var selectedProducts = '';
+    for (var i = 0; i < products.length; i++) {
+        var prodName = products[i].querySelector('.prodName').textContent;
+        var quantityInput = products[i].querySelector('input[type="number"]');
+        var quantity = quantityInput ? quantityInput.value : 0;
+
+        if (quantity > 0) {
+            selectedProducts += prodName + ': ' + quantity + ' шт<br>';
+        }
+    }
+
+    var formText = 'Имя получателя: ' + receiverName + '<br>' +
+                   'Телефон получателя: ' + receiverTel + '<br>' +
+                   'Адрес доставки: ' + deliveryAddress + '<br>' +
+                   'доставка: ' + deliveryMethod + '<br>' +
+                   'Дата доставки: ' + deliveryDate + '<br>' +
+                   'Выбранные товары:<br>' + selectedProducts;
+
+
+    document.getElementById('formText').innerHTML = formText;
+}
+
+// Добавляем обработчики событий на поля формы
+document.getElementById('receiverName').addEventListener('input', updateFormText);
+document.getElementById('receiverTel').addEventListener('input', updateFormText);
+document.getElementById('deliveryAddress').addEventListener('input', updateFormText);
+document.querySelectorAll('input[name="delivery"]').forEach(function(radio) {
+    radio.addEventListener('change', updateFormText);
+});
+document.getElementById('myDate').addEventListener('change', updateFormText);
+
+document.querySelectorAll('.product input[type="number"]').forEach(function(input) {
+    input.addEventListener('input', updateFormText);
+});
+document.querySelectorAll('.product .add').forEach(function(button) {
+    button.addEventListener('click', updateFormText);
+});
+
+document.querySelectorAll('.product .increase').forEach(function(button) {
+    button.addEventListener('click', updateFormText);
+});
+
+document.querySelectorAll('.product .decrease').forEach(function(button) {
+    button.addEventListener('click', updateFormText);
+});
+
+    </script>
+    
+
+
+<script src="./main.js"></script>
+</body>
+</html>
